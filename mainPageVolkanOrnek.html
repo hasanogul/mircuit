@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head >
+    <title>Python Flask App</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <style>
+        .container {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            width: 40%;
+
+        }
+        .container2 {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            width: 60%;
+        }
+        .header {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        .body {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+        }
+    </style>
+</head >
+
+<body>
+        <div class="container2">
+            <div class="header">
+                <p></p>
+                <font size="6"><b>INTEGRATIVE REGULATORY CIRCUIT FINDER</b></font>
+                <p></p>
+                <p> &ensp;&ensp; &ensp;&ensp;&ensp;&ensp;A tool for integrating analysis of mRNA and miRNA expression data to infer regulatory circuits</p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Folder_mRNA.csv') }}"> Example mRNA File </a>
+            </div>
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Folder_miRNA.csv') }}"> Example miRNA File </a>
+            </div>
+
+            <div class="header">
+
+                <form method="POST" action="{{ url_for("upload_file")}}" enctype="multipart/form-data">
+                    <p>mRNA File: <input type="file" name="file1" multiple=""></p>
+
+                    <input type="radio" name="options-1" id="option1" value=1.5> 1.5 </input><br>
+                    <input type="radio" name="options-1" id="option2" value=2> 2 </input><br>
+
+
+                    <p>miRNA File: <input type="file" name="file2" multiple=""></p>
+
+                    <input type="radio" name="options-2" id="options1" value=1.5> 1.5 </input><br>
+                    <input type="radio" name="options-2" id="options2" value=2> 2 </input><br>
+
+                    <p><input type="submit" value="Data With Expression Values" name="ForRawFile" /></p>
+                    <p><input type="submit" value="Data With Fold Change" name="ForMergeFilewithLog" /></p>
+
+                    <p><input type="submit" value="Without GSEA-miSEA" name="Without GSEA-miSEA" /></p>
+                    <p><input type="submit" value="With GSEA" name="With GSEA" /></p>
+                    <p><input type="submit" value="With miSEA" name="With miSEA" /></p>
+                    <p><input type="submit" value="With GSEA and miSEA" name="With GSEA and miSEA" /></p>
+                </form>
+            </div>
+
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Output/DE_mRNA.csv') }}"> See mRNA File </a>
+                <a href="{{ url_for('download_file') }}"> Download Dif. Exp. for mRNA </a>
+            </div>
+
+
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Output/DE_miRNA.csv') }}"> See miRNA File </a>
+                <a href="/download2"> Download Dif. Exp. for miRNA</a>
+            </div>
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Output/miRNA_TF_mRNA_1.txt') }}"> Open Circuits miRNA_TF_mRNA 1 </a>
+                <a href="/download2"> Download Open Circuits miRNA_TF_mRNA 1</a>
+            </div>
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Output/miRNA_TF_mRNA_2.txt') }}"> Open Circuits miRNA_TF_mRNA 2 </a>
+                <a href="/download2"> Download Open Circuits miRNA_TF_mRNA 2</a>
+            </div>
+
+
+            <div class="header">
+                <a href="{{ url_for('downloads', filename='Output/Circuits.txt') }}"> See Closed Circuits </a>
+                <a href="{{ url_for('download_file') }}"> Download Closed Circuits </a>
+
+            </div>
+
+
+
+        </div>
+
+
+</body>
+
+</html>
