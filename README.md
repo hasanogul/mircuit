@@ -7,6 +7,6 @@
 6. > python -m venv mircuit
 7. > mircuit\Scripts\activate
 8. > pip install -t lib -r requirements.txt
-9. > python app.py
+9. > python main.py
 10. Open http://localhost:5555 in your browser
 11. Follow the instructions in the web page
